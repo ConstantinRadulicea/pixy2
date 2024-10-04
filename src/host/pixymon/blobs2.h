@@ -34,7 +34,7 @@ public:
     uint16_t getBlock(uint8_t *buf, uint32_t buflen);
     uint16_t getCCBlock(uint8_t *buf, uint32_t buflen);
     BlobA *getMaxBlob(uint16_t signature=0);
-    void getBlobs(BlobA **blobs, uint32_t *len, BlobB **ccBlobs, uint32_t *ccLen);
+    void getBlobs(BlobA **blobs, uint32_t *len, BlobB2 **ccBlobs, uint32_t *ccLen);
     int setParams(uint16_t maxBlobs, uint16_t maxBlobsPerModel, uint32_t minArea, ColorCodeMode2 ccMode);
 
     void addSegment(uint8_t sig, uint16_t row, uint16_t startCol, uint16_t endCol);
@@ -64,7 +64,7 @@ private:
     uint16_t *m_blobs;
     uint16_t m_numBlobs;
 
-    BlobB *m_ccBlobs;
+    BlobB2 *m_ccBlobs;
     uint16_t m_numCCBlobs;
 
     bool m_mutex;

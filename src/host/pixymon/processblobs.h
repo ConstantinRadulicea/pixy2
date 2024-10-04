@@ -29,7 +29,7 @@ public:
     ProcessBlobs(Interpreter *interpreter);
     ~ProcessBlobs();
 
-    void process(const Frame8 &frame, uint32_t *numBlobs, BlobA **blobs, uint32_t *numCCBlobs, BlobB **ccBlobs, uint32_t *numQvals, Qval **qMem);
+    void process(const Frame8 &frame, uint32_t *numBlobs, BlobA **blobs, uint32_t *numCCBlobs, BlobB2 **ccBlobs, uint32_t *numQvals, Qval **qMem);
 
     Blobs *m_blobs;
 

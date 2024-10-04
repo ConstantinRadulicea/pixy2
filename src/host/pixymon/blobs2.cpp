@@ -121,7 +121,7 @@ void Blobs2::blobify()
     invalid += combine(m_blobs, m_numBlobs);
     if (m_ccMode!=DISABLED2)
     {
-        m_ccBlobs = (BlobB *)(m_blobs + m_numBlobs*5);
+        m_ccBlobs = (BlobB2 *)(m_blobs + m_numBlobs*5);
         // calculate number of codedblobs left
         processCC();
     }
@@ -334,7 +334,7 @@ BlobA *Blobs2::getMaxBlob(uint16_t signature)
     return NULL; // no blobs...
 }
 
-void Blobs2::getBlobs(BlobA **blobs, uint32_t *len, BlobB **ccBlobs, uint32_t *ccLen)
+void Blobs2::getBlobs(BlobA **blobs, uint32_t *len, BlobB2 **ccBlobs, uint32_t *ccLen)
 {
     *blobs = (BlobA *)m_blobs;
     *len = m_numBlobs;
@@ -758,7 +758,7 @@ void Blobs2::processCC()
     uint16_t scount, scount1, count = 0;
     int16_t left, right, top, bottom;
     uint16_t codedModel0, codedModel;
-    BlobB *codedBlob, *endBlobB;
+    BlobB2 *codedBlob, *endBlobB;
     BlobA *blob0, *blob1, *endBlob;
     BlobA *blobs[MAX_COLOR_CODE_MODELS*2];
 
@@ -833,7 +833,7 @@ void Blobs2::processCC()
 #endif
 
     // 3rd and final pass, find each blob clean it up and add it to the table
-    endBlobB = (BlobB *)((BlobA *)m_blobs + MAX_BLOBS)-1;
+    endBlobB = (BlobB2 *)((BlobA *)m_blobs + MAX_BLOBS)-1;
     for (i=1, codedBlob = m_ccBlobs, m_numCCBlobs=0; i<=count && codedBlob<endBlobB; i++)
     {
         scount = i<<3;

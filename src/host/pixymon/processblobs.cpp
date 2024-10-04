@@ -37,7 +37,7 @@ ProcessBlobs::~ProcessBlobs()
     delete [] m_qMem;
 }
 
-void ProcessBlobs::process(const Frame8 &frame, uint32_t *numBlobs, BlobA **blobs, uint32_t *numCCBlobs, BlobB **ccBlobs, uint32_t *numQvals, Qval **qMem)
+void ProcessBlobs::process(const Frame8 &frame, uint32_t *numBlobs, BlobA **blobs, uint32_t *numCCBlobs, BlobB2 **ccBlobs, uint32_t *numQvals, Qval **qMem)
 {
 #if 0
 #if 0

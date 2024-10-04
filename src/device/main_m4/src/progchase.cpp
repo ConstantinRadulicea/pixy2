@@ -27,13 +27,20 @@
 extern Qqueue *g_qqueue;
 extern Blobs *g_blobs;
 
-Program g_progChase =
-{
-	"chase",
-	"chase an object (demo)",
-	chaseSetup, 
-	chaseLoop
-};
+//typedef struct {
+//    const char* name;        // Program name
+//    const char* description; // Program description
+//    void (*setup)(void);     // Pointer to setup function
+//    void (*loop)(void);      // Pointer to loop function
+//} Program;
+//
+//Program g_progChase =
+//{
+//	"chase",
+//	"chase an object (demo)",
+//	chaseSetup, 
+//	chaseLoop
+//};
 
 static MotorLoop g_transLoop(500, 800);
 static MotorLoop g_rotLoop(700, 900);
@@ -164,7 +171,7 @@ int chaseLoop()
 {
 	uint16_t x, y;
 	BlobA *blobs, *blob;
-	BlobB *ccBlobs;
+	BlobB2 *ccBlobs;
 	uint32_t numBlobs, numCCBlobs;
 
 

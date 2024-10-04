@@ -384,7 +384,7 @@ void CBlobModule::renderEX00(uint8_t renderFlags, uint16_t width, uint16_t heigh
 {
     uint32_t numBlobs, numCCBlobs;
     BlobA *blobs;
-    BlobB *ccBlobs;
+    BlobB2 *ccBlobs;
     Frame8 frame8(frame, width, height);
     rls(&frame8);
     rla();
@@ -393,7 +393,7 @@ void CBlobModule::renderEX00(uint8_t renderFlags, uint16_t width, uint16_t heigh
     processBlobs(blobs, &numBlobs);
     m_interpreter->m_renderer->renderBA81(RENDER_FLAG_BLEND, width, height, frameLen, frame);
     m_interpreter->m_renderer->renderCCQ1(RENDER_FLAG_BLEND, width/2, height/2, m_numQvals, m_qvals);
-    //m_interpreter->m_renderer->renderCCB2(RENDER_FLAG_BLEND | RENDER_FLAG_FLUSH, width/2, height/2, numBlobs*sizeof(BlobA)/sizeof(uint16_t), (uint16_t *)blobs, numCCBlobs*sizeof(BlobB)/sizeof(uint16_t), (uint16_t *)ccBlobs);
+    //m_interpreter->m_renderer->renderCCB2(RENDER_FLAG_BLEND | RENDER_FLAG_FLUSH, width/2, height/2, numBlobs*sizeof(BlobA)/sizeof(uint16_t), (uint16_t *)blobs, numCCBlobs*sizeof(BlobB2)/sizeof(uint16_t), (uint16_t *)ccBlobs);
 }
 
 void CBlobModule::renderCCQ2(uint8_t renderFlags, uint16_t width, uint16_t height, uint32_t frameLen, uint8_t *frame)
@@ -407,7 +407,7 @@ void CBlobModule::renderCCQ2(uint8_t renderFlags, uint16_t width, uint16_t heigh
     processBlobs(blobs, &numBlobs);
 #endif
     m_interpreter->m_renderer->renderCCQ1(renderFlags, width, height, m_numQvals, m_qvals);
-//    m_interpreter->m_renderer->renderCCB2(renderFlags, width/2, height/2, numBlobs*sizeof(BlobA)/sizeof(uint16_t), (uint16_t *)blobs, numCCBlobs*sizeof(BlobB)/sizeof(uint16_t), (uint16_t *)ccBlobs);
+//    m_interpreter->m_renderer->renderCCB2(renderFlags, width/2, height/2, numBlobs*sizeof(BlobA)/sizeof(uint16_t), (uint16_t *)blobs, numCCBlobs*sizeof(BlobB2)/sizeof(uint16_t), (uint16_t *)ccBlobs);
 #endif
 }
 
