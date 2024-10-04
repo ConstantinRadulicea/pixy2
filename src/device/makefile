@@ -16,7 +16,7 @@ build_this_first:
 libpixy_m0:
 	$(MAKE) -f makefile_alt -C libpixy_m0/Release	
 
-.PHONY:  libpixy_m4
+.PHONY: libpixy_m4
 libpixy_m4:
 	$(MAKE) -f makefile_alt -C libpixy_m4/Release	
 
@@ -31,8 +31,3 @@ ram: build_this_first libpixy_m0 main_m0 libpixy_m4
 .PHONY: spifi
 spifi: build_this_first libpixy_m0 main_m0 libpixy_m4 
 	$(MAKE) -f makefile_alt -C main_m4/SPIFI
-	
-
-
-	
-
