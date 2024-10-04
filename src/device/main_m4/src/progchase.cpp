@@ -147,14 +147,10 @@ int chaseSetup()
 
 void chaseLoadParams()
 {
-	prm_add("Translation P gain", 0, 
-		"@c Chase_demo tranlational proportional gain (default 500)", INT32(500), END);
-	prm_add("Translation D gain", 0, 
-		"@c Chase_demo translational derivative gain (default 800)", INT32(800), END);
-	prm_add("Rotation P gain", 0, 
-		"@c Chase_demo rotational proportional gain (default 500)", INT32(500), END);
-	prm_add("Rotation D gain", 0, 
-		"@c Chase_demo rotational derivative gain (default 800)", INT32(800), END);
+	prm_add("Translation P gain", PRM_FLAG_INTERNAL , PRM_PRIORITY_DEFAULT, "@c Chase_demo tranlational proportional gain (default 500)", INT32(500), END);
+	prm_add("Translation D gain", PRM_FLAG_INTERNAL,  PRM_PRIORITY_DEFAULT, "@c Chase_demo translational derivative gain (default 800)", INT32(800), END);
+	prm_add("Rotation P gain", PRM_FLAG_INTERNAL,  PRM_PRIORITY_DEFAULT, "@c Chase_demo rotational proportional gain (default 500)", INT32(500), END);
+	prm_add("Rotation D gain", PRM_FLAG_INTERNAL,  PRM_PRIORITY_DEFAULT, "@c Chase_demo rotational derivative gain (default 800)", INT32(800), END);
 
 	int32_t pgain, dgain; 
 
@@ -173,6 +169,7 @@ int chaseLoop()
 	BlobA *blobs, *blob;
 	BlobB2 *ccBlobs;
 	uint32_t numBlobs, numCCBlobs;
+	SimpleList<Tracker<BlobA> > *blobsList;
 
 
 	// create blobs
@@ -194,8 +191,10 @@ int chaseLoop()
 
 
 	// send blobs
-	g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
-	cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
+	blobsList = (*g_blobs).getBlobs();
+	//g_blobs->getBlobs(&blobs, &numBlobs, &ccBlobs, &numCCBlobs);
+	//cc_sendBlobs(g_chirpUsb, blobs, numBlobs, ccBlobs, numCCBlobs);
+	cc_sendBlobs(g_chirpUsb, blobsList, RENDER_FLAG_FLUSH);
 
 	cc_setLED();
 	
