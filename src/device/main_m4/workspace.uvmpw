@@ -5,7 +5,7 @@
 
   <Header>### uVision Project, (C) Keil Software</Header>
 
-  <WorkspaceName>WorkSpace</WorkspaceName>
+  <WorkspaceName>C:\Programming\pixy2\src\device\main_m4\workspace.uvmpw</WorkspaceName>
 
   <project>
     <PathAndName>.\main_m4.uvprojx</PathAndName>
@@ -23,7 +23,6 @@
 
   <project>
     <PathAndName>..\libpixy_m4\libpixy_m4.uvproj</PathAndName>
-    <NodeIsExpanded>1</NodeIsExpanded>
   </project>
 
 </ProjectWorkspace>
