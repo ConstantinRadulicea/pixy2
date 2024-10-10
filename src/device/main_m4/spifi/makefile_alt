@@ -6,7 +6,7 @@ SRC_CPP :=  $(wildcard ../src/*.cpp)
 C_DEPS := $(subst ..,.,$(SRC_C:.c=.d)) $(subst ..,.,$(SRC_CPP:.cpp=.d))
 OBJS := $(subst ..,.,$(SRC_C:.c=.o)) $(subst ..,.,$(SRC_CPP:.cpp=.o))
 USER_OBJS :=
-LIBS := -llibpixy_m4 #-lfalcon_m4_spifi_drv
+LIBS := -llibpixy_m4 -lfalcon_m4_spifi_drv
 ARCHIVES :=
 
 USER_OBJS := ../../main_m0/Release/main_m0.axf.o
